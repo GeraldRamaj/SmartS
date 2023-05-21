@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Edito Produkt</title>
+</head>
+<body>
+<div align="center">
+  <form action="#" th:action="@{/products/saveProducts}" th:object="${products}"
+        method="post">
+
+    <table border="0" cellpadding="10">
+      <tr>
+        <td>Nxenes ID:</td>
+        <td>
+          <input type="text" th:field="*{id}" readonly="readonly" />
+        </td>
+      </tr>
+      <tr>
+        <td>Emertimi:</td>
+        <td><input type="text" th:field="*{emertimi}" /></td>
+      </tr>
+
+      <tr>
+        <td>Cmimi:</td>
+        <td><input type="number" th:field="*{price}" /></td>
+      </tr>
+      <tr>
+        <td>Produkt:</td>
+
+        <td><select th:field="*{category}">
+          <option th:each="categ : ${listaCategories}" th:value="${categ.id}"
+                  th:text="${categ.emri}"></option>
+        </select></td>
+      </tr>
+
+      <tr>
+        <td colspan="2"><button type="submit">Save</button></td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>

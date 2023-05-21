@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>Kategorite</title>
+  <link rel="stylesheet" th:href="@{/css/Stilizim.css}">
+</head>
+<body>
+<div align="left">
+  <h1>Lista e Kategorive</h1>
+
+  <br/><br/>
+  <table border="1" cellpadding="10">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Emri</th>
+      <th>Opsione</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="category : ${listKategorite}">
+      <td th:text="${category.id}">ID</td>
+      <td th:text="${category.emri}">Emri</td>
+      <td>
+        <a th:href="@{'/categories/edit/' + ${category.id}}">Edit</a>
+        &nbsp;&nbsp;&nbsp;
+        <a th:href="@{'/categories/delete/' + ${category.id}}">Fshij</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

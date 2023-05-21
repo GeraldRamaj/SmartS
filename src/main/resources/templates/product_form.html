@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Krijo Produkt</title>
+</head>
+<body>
+<div >
+  <div>
+    <h1>Krijo nje Produkt</h1>
+  </div>
+  <div>
+    <br/><br/>
+    <form action="#" th:action="@{/products/saveProducts}" th:object="${products}"
+          method="post">
+
+      <table border="0" cellpadding="10">
+        <tr>
+          <td>Emertimi:</td>
+          <td><input type="text" th:field="*{emertimi}" /></td>
+        </tr>
+        <tr>
+          <td>Cmimi:</td>
+          <td><input type="number" step="0.1" th:field="*{price}" /></td>
+        </tr>
+        <tr>
+          <td>Kategoria:</td>
+
+          <td><select th:field="*{category}">
+            <option th:each="categ : ${listCategory}" th:value="${categ.id}"
+                    th:text="${categ.emri}"></option>
+          </select></td>
+        </tr>
+
+        <tr>
+          <td colspan="2"><button type="submit">Save</button> </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+</div>
+
+</body>
+</html>
